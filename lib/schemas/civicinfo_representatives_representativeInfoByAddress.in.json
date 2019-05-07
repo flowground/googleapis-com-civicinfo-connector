@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "address": {
+            "type": "string"
+        },
+        "includeOffices": {
+            "type": "boolean",
+            "default": true
+        },
+        "levels": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "administrativeArea1",
+                    "administrativeArea2",
+                    "country",
+                    "international",
+                    "locality",
+                    "regional",
+                    "special",
+                    "subLocality1",
+                    "subLocality2"
+                ],
+                "type": "string"
+            }
+        },
+        "roles": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "deputyHeadOfGovernment",
+                    "executiveCouncil",
+                    "governmentOfficer",
+                    "headOfGovernment",
+                    "headOfState",
+                    "highestCourtJudge",
+                    "judge",
+                    "legislatorLowerBody",
+                    "legislatorUpperBody",
+                    "schoolBoard",
+                    "specialPurposeOfficer"
+                ],
+                "type": "string"
+            }
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A request for political geography and representative information for an address.",
+            "properties": {
+                "contextParams": {
+                    "properties": {
+                        "clientProfile": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

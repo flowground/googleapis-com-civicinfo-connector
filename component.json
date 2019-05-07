@@ -1,0 +1,119 @@
+{
+    "title": "Google Civic Information",
+    "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.",
+    "docsUrl": "https://developers.google.com/civic-information",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/civicinfo/v2/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/civicinfo/v2",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "civicinfo_divisions_search": {
+            "main": "./lib/actions/civicinfo_divisions_search.js",
+            "title": "Searches for political divisions by their natural name or OCD ID.",
+            "description": "Searches for political divisions by their natural name or OCD ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/civicinfo_divisions_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "civicinfo_elections_electionQuery": {
+            "main": "./lib/actions/civicinfo_elections_electionQuery.js",
+            "title": "List of available elections to query.",
+            "description": "List of available elections to query.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/civicinfo_elections_electionQuery.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "civicinfo_representatives_representativeInfoByAddress": {
+            "main": "./lib/actions/civicinfo_representatives_representativeInfoByAddress.js",
+            "title": "Looks up political geography and representative information for a single address.",
+            "description": "Looks up political geography and representative information for a single address.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/civicinfo_representatives_representativeInfoByAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "civicinfo_representatives_representativeInfoByDivision": {
+            "main": "./lib/actions/civicinfo_representatives_representativeInfoByDivision.js",
+            "title": "Looks up representative information for a single geographic division.",
+            "description": "Looks up representative information for a single geographic division.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/civicinfo_representatives_representativeInfoByDivision.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "civicinfo_elections_voterInfoQuery": {
+            "main": "./lib/actions/civicinfo_elections_voterInfoQuery.js",
+            "title": "Looks up information relevant to a voter based on the voter's registered address.",
+            "description": "Looks up information relevant to a voter based on the voter's registered address.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/civicinfo_elections_voterInfoQuery.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
